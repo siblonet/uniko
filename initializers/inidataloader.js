@@ -64,7 +64,11 @@ async function initDataLoader() {
         adMinurl = 'admin';
     }
 
-    try {
+    deleteArticle();
+    await PostArticle(testaticle);
+    recentProduct(testaticle, testadd);
+
+    /*try {
         deleteArticle();
         deleteOrder();
         deleteSetting();
@@ -76,11 +80,10 @@ async function initDataLoader() {
             const people = await requesttoBackend('GET', 'people/persons/uniko');
             await PostPeople(people);
             await PostOrder(online.order);
-            //await PostArticle(online.article);
+            await PostArticle(online.article);
             await PostSettings(online.pagesetting);
-            //recentProduct(online.article, online.pagesetting);
-            await PostArticle(testaticle);
-            recentProduct(testaticle, testadd);
+            recentProduct(online.article, online.pagesetting);
+            
         } else {
             const productContainer = document.getElementById('product-container');
             productContainer.innerHTML = '';
@@ -109,7 +112,7 @@ async function initDataLoader() {
         }
 
     } catch (error) {
-        /* const productContainer = document.getElementById('product-container');
+         const productContainer = document.getElementById('product-container');
          productContainer.innerHTML = '';
  
          const productHTML = `
@@ -131,13 +134,11 @@ async function initDataLoader() {
          productContainer.innerHTML += productHTML;
          const loaderRemove = document.getElementById('loaderRemove');
          loaderRemove.innerHTML = "";
-         loaderRemove.style.display = "none";*/
-        deleteArticle();
-        await PostArticle(testaticle);
-        recentProduct(testaticle, testadd);
+         loaderRemove.style.display = "none";
+       
         console.log("initDataLoader try catch", error);
 
-    };
+    };*/
     setPageSettings();
 
 };
