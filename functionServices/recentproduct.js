@@ -100,6 +100,9 @@ function recentProduct(recenPr, ADA) {
             }
         });
     }
+    const loaderRemove = document.getElementById('loaderRemove');
+        loaderRemove.innerHTML = "";
+        loaderRemove.style.display = "none";
     const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
     const ADS = ADA.find(item => item.which === "backglise").image;
     if (ProdAvailable.length > 0) {
